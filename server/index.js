@@ -1,6 +1,7 @@
 const express = require('express')
 const socketio = require('socket.io')
 const http = require('http')
+const cors = require('cors')
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users')
 
@@ -15,6 +16,7 @@ const router = require('./router');
 const { log } = require('console');
 
 app.use(router)
+app.use(cors())
 
 // when we get an client connection on our socket io instance
 io.on(
